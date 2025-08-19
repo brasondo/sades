@@ -1,0 +1,467 @@
+/* ROOT VARS */
+:root {
+  --bg: #F7F7F5;
+  --surface: #FFFFFF;
+  --ink: #111213;
+  --muted: #5B5F62;
+  --border: #E8E8E6;
+  --cocoa: #0C3B2E;
+  --gold: #C9A44B;
+
+  /* type scale */
+  --step--1: clamp(12px, 0.74vw + 9px, 14px);
+  --step-0: clamp(14px, 0.86vw + 9px, 16px);
+  --step-1: clamp(18px, 1.1vw + 10px, 20px);
+  --step-2: clamp(24px, 2vw + 8px, 28px);
+  --step-3: clamp(40px, 3.2vw + 14px, 64px);
+
+  /* spacing */
+  --s-1: 8px;
+  --s-2: 12px;
+  --s-3: 16px;
+  --s-4: 20px;
+  --s-5: 28px;
+  --s-6: 40px;
+  --s-7: 64px;
+  --s-8: clamp(72px, 7vw, 120px);
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body,
+#root {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* WRAPPERS */
+.sd-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--s-3)
+}
+
+.sd-section {
+  padding: var(--s-8) 0
+}
+
+.sd-section-alt {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border)
+}
+
+/* NAV */
+.sd-nav {
+  position: sticky;
+  top: 0;
+  backdrop-filter: saturate(180%) blur(10px);
+  background: rgba(247, 247, 245, .7);
+  border-bottom: 1px solid var(--border);
+  z-index: 40;
+  transition: all .2s ease
+}
+
+.sd-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  transition: height .2s ease
+}
+
+.sd-nav.shrink .sd-nav-inner {
+  height: 56px
+}
+
+.sd-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none
+}
+
+.sd-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--cocoa), #08241c);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .2)
+}
+
+.sd-logo {
+  font-weight: 600;
+  letter-spacing: .02em
+}
+
+.sd-links {
+  display: flex;
+  gap: 22px
+}
+
+.sd-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: var(--step-0)
+}
+
+.sd-link:hover {
+  color: var(--ink)
+}
+
+/* HERO */
+.sd-hero {
+  padding: 92px 0 64px
+}
+
+.sd-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  color: var(--cocoa);
+  font-size: 12px;
+  margin: 0 0 10px
+}
+
+.sd-h1 {
+  font: 600 var(--step-3)/1.04 "Cormorant Garamond", Georgia, serif;
+  margin: 0 0 12px
+}
+
+.sd-lead {
+  font-size: var(--step-1);
+  color: var(--muted);
+  max-width: 72ch;
+  margin: 0 0 28px
+}
+
+.sd-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap
+}
+
+/* BUTTONS */
+.sd-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--ink);
+  background: var(--surface);
+  transition: all .2s ease
+}
+
+.sd-btn:hover {
+  border-color: #d9d9d7
+}
+
+.sd-btn--gold {
+  background: var(--gold);
+  color: #fff;
+  border-color: transparent
+}
+
+.sd-btn--gold:hover {
+  filter: brightness(1.05)
+}
+
+.sd-btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--cocoa);
+  opacity: .8
+}
+
+.sd-btn--ghost:hover {
+  opacity: 1;
+  text-decoration: underline
+}
+
+/* STRIP */
+.sd-strip {
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, .6)
+}
+
+.sd-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap
+}
+
+.sd-chip {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--surface)
+}
+
+.sd-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border)
+}
+
+/* GRID / CARDS */
+.sd-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px
+}
+
+.sd-h2 {
+  margin: 0;
+  font: 600 var(--step-2)/1.1 "Cormorant Garamond", Georgia, serif
+}
+
+.sd-link-quiet {
+  color: var(--muted);
+  text-decoration: none
+}
+
+.sd-link-quiet:hover {
+  color: var(--ink)
+}
+
+.sd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--s-3)
+}
+
+.sd-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: var(--s-3);
+  transition: transform .2s ease, box-shadow .2s ease
+}
+
+.sd-card:hover {
+  transform: translateY(-2px)
+}
+
+.sd-card-img {
+  aspect-ratio: 4/3;
+  width: 100%;
+  object-fit: cover;
+  background: #f3eee4;
+  filter: saturate(1.02) contrast(1.02);
+  border-radius: 12px;
+  margin-bottom: var(--s-2)
+}
+
+.sd-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px
+}
+
+.sd-card-title {
+  margin: 0;
+  font-size: var(--step-0)
+}
+
+.sd-price {
+  font-weight: 600;
+  color: var(--cocoa)
+}
+
+.sd-card-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--step--1)
+}
+
+/* STORY SPLIT */
+.sd-split {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 28px;
+  align-items: center
+}
+
+.sd-copy {
+  color: var(--muted);
+  font-size: var(--step-0);
+  max-width: 62ch
+}
+
+.sd-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden
+}
+
+.sd-panel-art {
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #0c3b2e, #0a2f25);
+  position: relative
+}
+
+.sd-panel-art:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12)
+}
+
+/* COLUMNS / BOXES */
+.sd-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px
+}
+
+.sd-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px
+}
+
+.sd-h3 {
+  margin: 0 0 8px;
+  font: 600 var(--step-1)/1.2 "Cormorant Garamond", Georgia, serif
+}
+
+.sd-list {
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+  color: var(--muted)
+}
+
+/* FORM */
+.sd-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-content: start
+}
+
+.sd-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px
+}
+
+.sd-field span {
+  font-size: 12px;
+  color: var(--muted)
+}
+
+.sd-input {
+  appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit
+}
+
+.sd-input:focus {
+  outline: 2px solid var(--cocoa);
+  outline-offset: 2px
+}
+
+.sd-textarea {
+  resize: vertical
+}
+
+.sd-form .sd-btn {
+  grid-column: span 2
+}
+
+/* FOOTER */
+.sd-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  background: rgba(255, 255, 255, .6)
+}
+
+.sd-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted)
+}
+
+.sd-footer-links {
+  display: flex;
+  gap: 16px
+}
+
+.sd-footer a {
+  color: inherit;
+  text-decoration: none
+}
+
+.sd-footer a:hover {
+  color: var(--ink)
+}
+
+/* UTIL */
+@media (max-width: 960px) {
+  .sd-h1 {
+    font-size: 44px
+  }
+
+  .sd-split {
+    grid-template-columns: 1fr
+  }
+
+  .sd-columns {
+    grid-template-columns: 1fr
+  }
+
+  .sd-form {
+    grid-template-columns: 1fr
+  }
+
+  .sd-form .sd-btn {
+    grid-column: span 1
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 12px
+}
